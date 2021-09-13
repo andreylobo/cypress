@@ -123,27 +123,27 @@ class MeuSocarrao {
   }
   //Valida se o retorno do uploads das imagens inseridas retorna status 200
   ValidaUploadImg() {
-    //Validação da img1 imagens
+    //Validação da img1 imagens se retornou status 200
     cy.wait('@UploadImgVeiculo');
     cy.get('@UploadImgVeiculo').then(({ request, response }) => {
       expect(response.statusCode).to.eq(200);
     });
-    //Validação da img2 imagens
+    //Validação da img2 imagens se retornou status 200
     cy.wait('@UploadImgVeiculo');
     cy.get('@UploadImgVeiculo').then(({ request, response }) => {
       expect(response.statusCode).to.eq(200);
     });
-    //Validação da img3 imagens
+    //Validação da img3 imagens se retornou status 200
     cy.wait('@UploadImgVeiculo');
     cy.get('@UploadImgVeiculo').then(({ request, response }) => {
       expect(response.statusCode).to.eq(200);
     });
-    //Validação da img4 imagens
+    //Validação da img4 imagens se retornou status 200
     cy.wait('@UploadImgVeiculo');
     cy.get('@UploadImgVeiculo').then(({ request, response }) => {
       expect(response.statusCode).to.eq(200);
     });
-    //Validação da img5 imagens
+    //Validação da img5 imagem se retornou status 200
     cy.wait('@UploadImgVeiculo');
     cy.get('@UploadImgVeiculo').then(({ request, response }) => {
       expect(response.statusCode).to.eq(200);
