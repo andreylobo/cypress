@@ -31,5 +31,10 @@ describe('Testes de Criacao do Anuncio', () => {
     MeuSocarrao.UploadImagens();
     MeuSocarrao.ValidaUploadImg();
     MeuSocarrao.ClicarBotaoProximoPasso4();
+    MeuSocarrao.UploadImagensP4();
+    MeuSocarrao.ClicarBotaoProximoPasso5();
+    MeuSocarrao.PreenchimentoDadosBoleto();
+    MeuSocarrao.ClicarBotaoConcluir();
+    MeuSocarrao.ValidaCriarAnuncio();
   });
 });
