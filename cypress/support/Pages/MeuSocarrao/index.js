@@ -159,6 +159,7 @@ class MeuSocarrao {
     cy.get(el.passoQuatroAtivo).should('be.visible');
     cy.url().should('include', '/passo?advertisement=1&stepper=4');
   }
+<<<<<<< HEAD
   //Realiza o upload da imagens rg
   UploadImagensRG(){
     cy.get('.docs-step1').attachFile(
@@ -176,6 +177,11 @@ class MeuSocarrao {
   //Realiza o upload da imagens do crv
   UploadImagensCRV(){
     cy.get('.docs-step3').attachFile(
+=======
+  //Realiza o upload do da imagens dos documentos
+  UploadImagensP4(){
+    cy.get(el.uploadImagemCRV).attachFile(
+>>>>>>> 6fb63be4ea711522b679f91331e8c7430ea6c255
       ['docVeiculo.png'],
       { subjectType: 'drag-n-drop' }
     );
@@ -215,6 +221,7 @@ class MeuSocarrao {
     cy.wait('@CriaAnuncio');
     cy.get('@CriaAnuncio').then(({ request, response }) => {
       expect(response.statusCode).to.eq(200);
+<<<<<<< HEAD
       expect(response.body.action).to.equal('CREATE');
     });
   }
@@ -237,6 +244,9 @@ class MeuSocarrao {
     cy.wait('@UploadImgDocs');
     cy.get('@UploadImgDocs').then(({ request, response }) => {
       expect(response.statusCode).to.eq(200);
+=======
+      expect(request.body.action).to.equal('CREATE');
+>>>>>>> 6fb63be4ea711522b679f91331e8c7430ea6c255
     });
   }
 }

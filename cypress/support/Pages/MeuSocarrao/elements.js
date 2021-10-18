@@ -53,9 +53,15 @@ export const ELEMENTS = {
   // Passo quatro criação do anuncio
   passoQuatroAtivo: '.step-four-active',
   uploadImagemCRV: '.photo-upload',
+<<<<<<< HEAD
   botaoRemoverImagem: '.docs-step3 > .send > [data-v-582ac574=""][data-v-28adcd4c=""] > .uploaded > .uploaded-photo > .remove-photo',
   // Passo cinco criação do anuncio
   passoCincoAtivo: '.step-five-active',
+=======
+  // Passo cinco criação do anuncio
+  passoCincoAtivo: '.step-five-active',
+  botaoRemoverImagem: '.remove-photo',
+>>>>>>> 6fb63be4ea711522b679f91331e8c7430ea6c255
   selecionaBoleto: '.boleto',
   formDadosBoleto: ':nth-child(1) > .boleto-form',
   inputNome: '#boleto-name',
@@ -71,6 +77,9 @@ export const ELEMENTS = {
   inputEmail: '#boleto-email',
   inputFone: '#boleto-phone',
   botaoConcluir: '#onComplete'
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 6fb63be4ea711522b679f91331e8c7430ea6c255
 };
