@@ -1,7 +1,9 @@
 export const ELEMENTS = {
-  // Mapeamentos de elementos de Criaç+ao do Anuncio
+  // Mapeamentos de elementos de Criaçao do Anuncio
   //Logo da pagina do Meu Anuncio
   logo: '.nuxt-link-active > .logo',
+  //Frase pagina do Meu SóCarrao
+  fraseMeuSocarrao: '.header > h2',
   // pagina home
   fraseTopoHome: '.headline',
   botaoVenderVeiculo: '.tabs > :nth-child(2) > a',
@@ -50,14 +52,18 @@ export const ELEMENTS = {
   passoTresAtivo: '.step-three-active',
   botãoTutorialImagens: '.reorganize-tutorial-info > .button',
   uploadImagens: '#uploader',
+  loadBotaoProximo: '.spinner',
   // Passo quatro criação do anuncio
   passoQuatroAtivo: '.step-four-active',
-  uploadImagemCRV: '.photo-upload',
+  uploadImagemRG: '.docs-step1',
+  uploadImagemSelf: '.docs-step2',
+  uploadImagemCRV: '.docs-step3',
   botaoRemoverImagem:
     '.docs-step3 > .send > [data-v-582ac574=""][data-v-28adcd4c=""] > .uploaded > .uploaded-photo > .remove-photo',
   // Passo cinco criação do anuncio
   passoCincoAtivo: '.step-five-active',
   selecionaBoleto: '.boleto',
+  //Inputs do forme de boleto
   formDadosBoleto: ':nth-child(1) > .boleto-form',
   inputNome: '#boleto-name',
   inputRua: '#boleto-street',
@@ -73,5 +79,6 @@ export const ELEMENTS = {
   inputDtNasc: '#boleto-birth',
   inputEmail: '#boleto-email',
   inputFone: '#boleto-phone',
+  //Inputs do forme de boleto fim
   botaoConcluir: '#onComplete',
 };

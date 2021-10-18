@@ -17,7 +17,7 @@ class MeuSocarrao {
   }
   //Clica la logo par aque seja direcionado para a home
   ClicarBotaoHome() {
-    cy.get('.header > h2').should('be.visible');
+    cy.get(el.fraseMeuSocarrao).should('be.visible');
     cy.get(el.logo).click();
     cy.get(el.fraseTopoHome).should('be.visible');
   }
@@ -157,26 +157,26 @@ class MeuSocarrao {
   }
   //Clica no botão 'Proximo' e valida que foi direcionado para a URL correta
   ClicarBotaoProximoPasso4() {
-    cy.get('.spinner').should('not.exist');
+    cy.get(el.loadBotaoProximo).should('not.exist');
     cy.get(el.botaoProximo).click();
     cy.get(el.passoQuatroAtivo).should('be.visible');
     cy.url().should('include', '/passo?advertisement=1&stepper=4');
   }
   //Realiza o upload da imagens rg
   UploadImagensRG() {
-    cy.get('.docs-step1').attachFile(['docVeiculo.png'], {
+    cy.get(el.uploadImagemRG).attachFile(['docVeiculo.png'], {
       subjectType: 'drag-n-drop',
     });
   }
   //Realiza o upload da imagens da self
   UploadImagensSelf() {
-    cy.get('.docs-step2').attachFile(['docVeiculo.png'], {
+    cy.get(el.uploadImagemSelf).attachFile(['docVeiculo.png'], {
       subjectType: 'drag-n-drop',
     });
   }
   //Realiza o upload da imagens do crv
   UploadImagensCRV() {
-    cy.get('.docs-step3').attachFile(['docVeiculo.png'], {
+    cy.get(el.UploadImagensCRV).attachFile(['docVeiculo.png'], {
       subjectType: 'drag-n-drop',
     });
   }
@@ -218,6 +218,7 @@ class MeuSocarrao {
       expect(response.body.action).to.equal('CREATE');
     });
   }
+  // Valida o retorno da api se o veiuclo foi criado
   ValidaCriarVeiculo() {
     cy.wait('@CriaVeiculo');
     cy.get('@CriaVeiculo').then(({ request, response }) => {
@@ -225,6 +226,7 @@ class MeuSocarrao {
       expect(response.body.advertisement.action).to.equal('CREATED');
     });
   }
+  // Valida na Api de o upload dos domumentos retorna sucesso
   ValidaUploadImgDocs() {
     cy.wait('@UploadImgDocs');
     cy.get('@UploadImgDocs').then(({ request, response }) => {

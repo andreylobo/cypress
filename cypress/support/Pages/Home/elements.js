@@ -5,4 +5,5 @@ export const ELEMENTS = {
   inputEmail: 'form > [type="text"]',
   inputSenha: '.password-input > .regular',
   buttonEntrar: '#btn_entrar',
-};
+  botaoAceitarCookies: '.banner > .button'
+}
