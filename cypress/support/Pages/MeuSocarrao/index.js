@@ -1,4 +1,5 @@
 const el = require('./elements').ELEMENTS;
+const dt = require('../../../fixtures/dadosUsuario').DATA;
 class MeuSocarrao {
   // FUncao que fica escutando as APIs Acionadas durante o processo
   ListenApis() {
@@ -6,9 +7,11 @@ class MeuSocarrao {
     cy.intercept('GET', '**/api/models/all?brandId[]=139').as('Modelo');
     cy.intercept('GET', '**/api/versions/all?modelId[]=2').as('Versao');
     cy.intercept('POST', '**/api/announce/images').as('UploadImgVeiculo');
+    cy.intercept('POST', '**/api/announce/moderation/user/**').as('UploadImgDocs')
     cy.intercept('POST', '**/api/announce/createVehicleWithAds').as(
-      'CriaAnuncio'
-    );
+      'CriaVeiculo');
+    cy.intercept('POST', '**/api/announce/store/vehicles').as(
+      'CriaAnuncio');
   }
   //Clica la logo par aque seja direcionado para a home
   ClicarBotaoHome() {
@@ -117,7 +120,7 @@ class MeuSocarrao {
   //Realiza o uploads das imagens atravez de arrastar e soltar
   UploadImagens() {
     cy.get(el.uploadImagens).attachFile(
-      ['img1.jpg', 'img2.jpg', 'img3.jpg', 'img4.jpg', 'img5.jpg'],
+      ['img1.jpg','img2.jpg','img3.jpg','img4.jpg','img5.jpg'],
       { subjectType: 'drag-n-drop' }
     );
   }
@@ -151,9 +154,90 @@ class MeuSocarrao {
   }
   //Clica no botão 'Proximo' e valida que foi direcionado para a URL correta
   ClicarBotaoProximoPasso4() {
+    cy.get('.spinner').should('not.exist');
     cy.get(el.botaoProximo).click();
-    cy.url().should('include', '/passo?advertisement=1&stepper=4');
     cy.get(el.passoQuatroAtivo).should('be.visible');
+    cy.url().should('include', '/passo?advertisement=1&stepper=4');
+  }
+  //Realiza o upload da imagens rg
+  UploadImagensRG(){
+    cy.get('.docs-step1').attachFile(
+      ['docVeiculo.png'],
+      { subjectType: 'drag-n-drop' }
+    );
+  }
+  //Realiza o upload da imagens da self
+  UploadImagensSelf(){
+    cy.get('.docs-step2').attachFile(
+      ['docVeiculo.png'],
+      { subjectType: 'drag-n-drop' }
+    );
+  }
+  //Realiza o upload da imagens do crv
+  UploadImagensCRV(){
+    cy.get('.docs-step3').attachFile(
+      ['docVeiculo.png'],
+      { subjectType: 'drag-n-drop' }
+    );
+  }
+  //Clica no botão 'Proximo' e valida que foi direcionado para a URL correta
+  ClicarBotaoProximoPasso5() {
+    cy.get(el.botaoRemoverImagem).should('be.visible');
+    cy.get(el.botaoProximo).click();
+    cy.get(el.passoCincoAtivo).should('be.visible');
+    cy.url().should('include', '/passo?advertisement=1&stepper=5');
+  }
+  //Seleciona pagamento boleto e insere dados de pagamento
+  PreenchimentoDadosBoleto() {
+    cy.get(el.selecionaBoleto).click();
+    cy.get(el.formDadosBoleto).should('be.visible');
+    cy.clearLocalStorage();
+    cy.get(el.inputNome).clear().type(dt.name);
+    cy.get(el.inputRua).clear().type(dt.rua);
+    cy.get(el.inputNumero).clear().type(dt.numero);
+    cy.get(el.inputBairro).clear().type(dt.bairro);
+    cy.get(el.inputCep).clear().type(dt.cep);
+    cy.get(el.inputCidadeBoleto).clear().type(dt.cidade)
+    cy.get(el.inputEstadoBoleto).click();
+    cy.get(el.selectEstadoBoleto).click();
+    cy.get(el.inputCpf).clear().type(dt.cpf);
+    cy.get(el.inputDtNasc).clear().type(dt.dataNasc);
+    cy.get(el.inputEmail).clear().type(dt.email);
+    cy.get(el.inputFone).clear().type(dt.fone);
+  }
+  //clica no botão "Concluir" e valida se direcionou para a url de finalização de anuncio
+  ClicarBotaoConcluir(){
+    cy.get(el.botaoConcluir).click();
+    cy.url().should('include', '/meu-socarrao/anunciar/finished');
+  }
+  // valida o retorno da api se o anuncio foi criado corretamente
+  ValidaCriarAnuncio(){
+    cy.wait('@CriaAnuncio');
+    cy.get('@CriaAnuncio').then(({ request, response }) => {
+      expect(response.statusCode).to.eq(200);
+      expect(response.body.action).to.equal('CREATE');
+    });
+  }
+  ValidaCriarVeiculo(){
+    cy.wait('@CriaVeiculo');
+    cy.get('@CriaVeiculo').then(({ request, response }) => {
+      expect(response.statusCode).to.eq(200);
+      expect(response.body.advertisement.action).to.equal('CREATED');
+    });
+  }
+  ValidaUploadImgDocs(){
+    cy.wait('@UploadImgDocs');
+    cy.get('@UploadImgDocs').then(({ request, response }) => {
+      expect(response.statusCode).to.eq(200);
+    });
+    cy.wait('@UploadImgDocs');
+    cy.get('@UploadImgDocs').then(({ request, response }) => {
+      expect(response.statusCode).to.eq(200);
+    });
+    cy.wait('@UploadImgDocs');
+    cy.get('@UploadImgDocs').then(({ request, response }) => {
+      expect(response.statusCode).to.eq(200);
+    });
   }
 }
 export default new MeuSocarrao();

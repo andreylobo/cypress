@@ -1,4 +1,5 @@
 const el = require('./elements').ELEMENTS;
+const dt = require('../../../fixtures/dadosUsuario').DATA;
 class Home {
   // Ações Login
   // Ação de Clique no botão entrar;
@@ -12,8 +13,8 @@ class Home {
   // Clica no botão Entrar
   PreencherLogin() {
     cy.get(el.loginDropDown).should('be.visible');
-    cy.get(el.inputEmail).type('andrey.loboo@gmail.com');
-    cy.get(el.inputSenha).type('12345678');
+    cy.get(el.inputEmail).type(dt.email);
+    cy.get(el.inputSenha).type(dt.senha);
   }
   // Clica no botao "Entrar"
   ClicarBotao() {
@@ -36,6 +37,9 @@ class Home {
     });
   }
   // end Login
+  ClicarBotaoCookies(){
+    cy.get('.banner > .button').click()
+  }
 }
 
 export default new Home();

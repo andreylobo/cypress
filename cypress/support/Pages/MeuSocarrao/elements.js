@@ -52,4 +52,25 @@ export const ELEMENTS = {
   uploadImagens: '#uploader',
   // Passo quatro criação do anuncio
   passoQuatroAtivo: '.step-four-active',
+  uploadImagemCRV: '.photo-upload',
+  botaoRemoverImagem: '.docs-step3 > .send > [data-v-582ac574=""][data-v-28adcd4c=""] > .uploaded > .uploaded-photo > .remove-photo',
+  // Passo cinco criação do anuncio
+  passoCincoAtivo: '.step-five-active',
+  selecionaBoleto: '.boleto',
+  formDadosBoleto: ':nth-child(1) > .boleto-form',
+  inputNome: '#boleto-name',
+  inputRua: '#boleto-street',
+  inputNumero: '#boleto-number',
+  inputBairro: '#boleto-neighborhood',
+  inputCep: '#boleto-cep',
+  inputCidadeBoleto: '#boleto-city',
+  inputEstadoBoleto: ':nth-child(1) > .boleto-form > :nth-child(4) > :nth-child(2) > #dropdown-uf > .input > input',
+  selectEstadoBoleto: ':nth-child(1) > .boleto-form > :nth-child(4) > :nth-child(2) > #dropdown-uf > .autocomplete > :nth-child(16)',
+  inputCpf: '#boleto-cpf',
+  inputDtNasc: '#boleto-birth',
+  inputEmail: '#boleto-email',
+  inputFone: '#boleto-phone',
+  botaoConcluir: '#onComplete'
+
+
 };
