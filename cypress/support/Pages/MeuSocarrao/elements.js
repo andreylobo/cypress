@@ -9,7 +9,14 @@ export const ELEMENTS = {
   botaoVenderVeiculo: '.tabs > :nth-child(2) > a',
   //Pagina de Anunciar
   planos: '.plans-list',
+  // Card do plano starter
   planoStarter: '.plans-list > :nth-child(1) > .button',
+  // Card do plano starter
+  planoTurbo: '.plans-list > :nth-child(2) > .button',
+  // Card do plano starter
+  planoMelhor: '.plans-list > :nth-child(3) > .button',
+  // Card do plano starter
+  planoGratis: '.plans-list > :nth-child(4) > .button',
   // Passo um criação do anuncio
   passoUmAtivo: '.step-one-active',
   acessorios: '.accessories',
@@ -60,6 +67,7 @@ export const ELEMENTS = {
   uploadImagemCRV: '.docs-step3',
   botaoRemoverImagem:
     '.docs-step3 > .send > [data-v-582ac574=""][data-v-28adcd4c=""] > .uploaded > .uploaded-photo > .remove-photo',
+  uploaded: '.uploaded',
   // Passo cinco criação do anuncio
   passoCincoAtivo: '.step-five-active',
   selecionaBoleto: '.boleto',

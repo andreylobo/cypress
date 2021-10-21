@@ -26,9 +26,24 @@ class MeuSocarrao {
     cy.get(el.botaoVenderVeiculo).click();
     cy.get(el.planos).should('be.visible');
   }
-  //É selecionado um plano dos disponivels , para criar um anuncio
-  EscolherPlano() {
+  //É selecionado o plano Starter para criar um anuncio
+  EscolherPlanoStarter() {
     cy.get(el.planoStarter).click();
+    cy.get(el.passoUmAtivo).should('be.visible');
+  }
+  //É selecionado o plano Starter para criar um anuncio
+  EscolherPlanoTurbo() {
+    cy.get(el.planoTurbo).click();
+    cy.get(el.passoUmAtivo).should('be.visible');
+  }
+  //É selecionado o plano Starter para criar um anuncio
+  EscolherPlanoMelhor() {
+    cy.get(el.planoMelhor).click();
+    cy.get(el.passoUmAtivo).should('be.visible');
+  }
+  //É selecionado o plano Starter para criar um anuncio
+  EscolherPlanoGratis() {
+    cy.get(el.planoGratis).click();
     cy.get(el.passoUmAtivo).should('be.visible');
   }
   // Localiza o input da placa e inseri uma placa
@@ -164,25 +179,26 @@ class MeuSocarrao {
   }
   //Realiza o upload da imagens rg
   UploadImagensRG() {
-    cy.get(el.uploadImagemRG).attachFile(['docVeiculo.png'], {
+    cy.get(el.uploadImagemRG).attachFile(['docPessoal.png'], {
       subjectType: 'drag-n-drop',
     });
   }
   //Realiza o upload da imagens da self
   UploadImagensSelf() {
-    cy.get(el.uploadImagemSelf).attachFile(['docVeiculo.png'], {
+    cy.get(el.uploadImagemSelf).attachFile(['docPessoalRosto.png'], {
       subjectType: 'drag-n-drop',
     });
   }
   //Realiza o upload da imagens do crv
   UploadImagensCRV() {
-    cy.get(el.UploadImagensCRV).attachFile(['docVeiculo.png'], {
+    cy.get(el.uploadImagemCRV).attachFile(['docVeiculo.png'], {
       subjectType: 'drag-n-drop',
     });
   }
   //Clica no botão 'Proximo' e valida que foi direcionado para a URL correta
   ClicarBotaoProximoPasso5() {
     cy.get(el.botaoRemoverImagem).should('be.visible');
+    cy.get('.uploaded').should('be.visible');
     cy.get(el.botaoProximo).click();
     cy.get(el.passoCincoAtivo).should('be.visible');
     cy.url().should('include', '/passo?advertisement=1&stepper=5');
