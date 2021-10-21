@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 import Home from '../../../support/Pages/Home'
 
-describe('Testes de Login', () => {
+describe('Mobile - Testes de Login', () => {
   beforeEach('', () => {
     cy.viewport(375, 667);
     cy.visit('https://www.socarrao.com.br/?ignore=true')
