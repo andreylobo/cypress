@@ -2,11 +2,11 @@
 import MeuSocarrao from '../../../support/Pages/MeuSocarrao';
 import Home from '../../../support/Pages/Home';
 
-describe('Testes de Criacao do Anuncio', () => {
+describe('Mobile - Testes de Criacao do Anuncio', () => {
   beforeEach(
     'Realiza login de um usuario ja existente',
     () => {
-      cy.viewport(375, 667);
+      cy.viewport('iphone-8');
       cy.visit('https://www.socarrao.com.br/?ignore=true');
       Home.ClicarBotaoCookies();
       Home.AcessarLogin();
@@ -17,10 +17,11 @@ describe('Testes de Criacao do Anuncio', () => {
   );
   it('Dado um usuario ja logado no sistema na pagina do Meu SóCarrão, quando clicar na logo e ser direcionado a Home para criar um anuncio Starter com pagamento por boleto, então deve poder criar o veiculo', () => {
     MeuSocarrao.ListenApis();
-    MeuSocarrao.ClicarBotaoHome();
+    MeuSocarrao.ClicarBotaoHomeMobile();
     MeuSocarrao.ClicarVenderVeiculo();
-    MeuSocarrao.EscolherPlano();
+    MeuSocarrao.EscolherPlanoStarter();
     MeuSocarrao.PreecherPlaca();
+    MeuSocarrao.ValidaApiPlacaNaoEncontrada();
     MeuSocarrao.PreencherMarcaModeloVersao();
     MeuSocarrao.PreencheAno();
     MeuSocarrao.PreencherKmCombustivel();
@@ -32,8 +33,8 @@ describe('Testes de Criacao do Anuncio', () => {
     MeuSocarrao.ClicarBotaoProximoPasso2();
     MeuSocarrao.PreenchePrecoDescricao();
     MeuSocarrao.ClicarBotaoProximoPasso3();
-    //MeuSocarrao.UploadImagens();
-    //MeuSocarrao.ValidaUploadImg();
+    MeuSocarrao.UploadImagens();
+    MeuSocarrao.ValidaUploadImg();
     MeuSocarrao.ClicarBotaoProximoPasso4();
     MeuSocarrao.UploadImagensRG();
     MeuSocarrao.UploadImagensSelf();
@@ -42,6 +43,97 @@ describe('Testes de Criacao do Anuncio', () => {
     MeuSocarrao.ClicarBotaoProximoPasso5();
     MeuSocarrao.PreenchimentoDadosBoleto();
     MeuSocarrao.ClicarBotaoConcluir();
+    MeuSocarrao.ValidaCriarAnuncio();
+    MeuSocarrao.ValidaCriarVeiculo();
+  });
+  it('Dado um usuario ja logado no sistema na pagina do Meu SóCarrão, quando clicar na logo e ser direcionado a Home para criar um anuncio Turbo com pagamento por boleto, então deve poder criar o veiculo', () => {
+    MeuSocarrao.ListenApis();
+    MeuSocarrao.ClicarBotaoHomeMobile();
+    MeuSocarrao.ClicarVenderVeiculo();
+    MeuSocarrao.EscolherPlanoTurbo();
+    MeuSocarrao.PreecherPlaca();
+    MeuSocarrao.ValidaApiPlacaNaoEncontrada();
+    MeuSocarrao.PreencherMarcaModeloVersao();
+    MeuSocarrao.PreencheAno();
+    MeuSocarrao.PreencherKmCombustivel();
+    MeuSocarrao.PreencherCambioCor();
+    MeuSocarrao.PreeenchePortaBanco();
+    MeuSocarrao.PreecherEstadoCidade();
+    MeuSocarrao.PreencherAcessoriosCompleto();
+    MeuSocarrao.PreencherBuscaAcessorios();
+    MeuSocarrao.ClicarBotaoProximoPasso2();
+    MeuSocarrao.PreenchePrecoDescricao();
+    MeuSocarrao.ClicarBotaoProximoPasso3();
+    MeuSocarrao.UploadImagens();
+    MeuSocarrao.ValidaUploadImg();
+    MeuSocarrao.ClicarBotaoProximoPasso4();
+    MeuSocarrao.UploadImagensRG();
+    MeuSocarrao.UploadImagensSelf();
+    MeuSocarrao.UploadImagensCRV();
+    //MeuSocarrao.ValidaUploadImgDocs();
+    MeuSocarrao.ClicarBotaoProximoPasso5();
+    MeuSocarrao.PreenchimentoDadosBoleto();
+    MeuSocarrao.ClicarBotaoConcluir();
+    MeuSocarrao.ValidaCriarAnuncio();
+    MeuSocarrao.ValidaCriarVeiculo();
+  });
+  it('Dado um usuario ja logado no sistema na pagina do Meu SóCarrão, quando clicar na logo e ser direcionado a Home para criar um anuncio Melhor com pagamento por boleto, então deve poder criar o veiculo', () => {
+    MeuSocarrao.ListenApis();
+    MeuSocarrao.ClicarBotaoHomeMobile();
+    MeuSocarrao.ClicarVenderVeiculo();
+    MeuSocarrao.EscolherPlanoMelhor();
+    MeuSocarrao.PreecherPlaca();
+    MeuSocarrao.ValidaApiPlacaNaoEncontrada();
+    MeuSocarrao.PreencherMarcaModeloVersao();
+    MeuSocarrao.PreencheAno();
+    MeuSocarrao.PreencherKmCombustivel();
+    MeuSocarrao.PreencherCambioCor();
+    MeuSocarrao.PreeenchePortaBanco();
+    MeuSocarrao.PreecherEstadoCidade();
+    MeuSocarrao.PreencherAcessoriosCompleto();
+    MeuSocarrao.PreencherBuscaAcessorios();
+    MeuSocarrao.ClicarBotaoProximoPasso2();
+    MeuSocarrao.PreenchePrecoDescricao();
+    MeuSocarrao.ClicarBotaoProximoPasso3();
+    MeuSocarrao.UploadImagens();
+    MeuSocarrao.ValidaUploadImg();
+    MeuSocarrao.ClicarBotaoProximoPasso4();
+    MeuSocarrao.UploadImagensRG();
+    MeuSocarrao.UploadImagensSelf();
+    MeuSocarrao.UploadImagensCRV();
+    //MeuSocarrao.ValidaUploadImgDocs();
+    MeuSocarrao.ClicarBotaoProximoPasso5();
+    MeuSocarrao.PreenchimentoDadosBoleto();
+    MeuSocarrao.ClicarBotaoConcluir();
+    MeuSocarrao.ValidaCriarAnuncio();
+    MeuSocarrao.ValidaCriarVeiculo();
+  });
+  it('Dado um usuario ja logado no sistema na pagina do Meu SóCarrão, quando clicar na logo e ser direcionado a Home para criar um anuncio Gratis com pagamento por boleto, então deve poder criar o veiculo', () => {
+    MeuSocarrao.ListenApis();
+    MeuSocarrao.ClicarBotaoHomeMobile();
+    MeuSocarrao.ClicarVenderVeiculo();
+    MeuSocarrao.EscolherPlanoGratis();
+    MeuSocarrao.PreecherPlaca();
+    MeuSocarrao.ValidaApiPlacaNaoEncontrada();
+    MeuSocarrao.PreencherMarcaModeloVersao();
+    MeuSocarrao.PreencheAno();
+    MeuSocarrao.PreencherKmCombustivel();
+    MeuSocarrao.PreencherCambioCor();
+    MeuSocarrao.PreeenchePortaBanco();
+    MeuSocarrao.PreecherEstadoCidade();
+    MeuSocarrao.PreencherAcessoriosCompleto();
+    MeuSocarrao.PreencherBuscaAcessorios();
+    MeuSocarrao.ClicarBotaoProximoPasso2();
+    MeuSocarrao.PreenchePrecoDescricao();
+    MeuSocarrao.ClicarBotaoProximoPasso3();
+    MeuSocarrao.UploadImagens();
+    MeuSocarrao.ValidaUploadImg();
+    MeuSocarrao.ClicarBotaoProximoPasso4();
+    MeuSocarrao.UploadImagensRG();
+    MeuSocarrao.UploadImagensSelf();
+    MeuSocarrao.UploadImagensCRV();
+    //MeuSocarrao.ValidaUploadImgDocs();
+    MeuSocarrao.ClicarBotaoProximoPasso5();
     MeuSocarrao.ValidaCriarAnuncio();
     MeuSocarrao.ValidaCriarVeiculo();
   });

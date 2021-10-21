@@ -21,6 +21,7 @@ describe('Testes de Criacao do Anuncio', () => {
     MeuSocarrao.ClicarVenderVeiculo();
     MeuSocarrao.EscolherPlanoStarter();
     MeuSocarrao.PreecherPlaca();
+    MeuSocarrao.ValidaApiPlacaNaoEncontrada()
     MeuSocarrao.PreencherMarcaModeloVersao();
     MeuSocarrao.PreencheAno();
     MeuSocarrao.PreencherKmCombustivel();
@@ -32,8 +33,8 @@ describe('Testes de Criacao do Anuncio', () => {
     MeuSocarrao.ClicarBotaoProximoPasso2();
     MeuSocarrao.PreenchePrecoDescricao();
     MeuSocarrao.ClicarBotaoProximoPasso3();
-    //MeuSocarrao.UploadImagens();
-    //MeuSocarrao.ValidaUploadImg();
+    MeuSocarrao.UploadImagens();
+    MeuSocarrao.ValidaUploadImg();
     MeuSocarrao.ClicarBotaoProximoPasso4();
     MeuSocarrao.UploadImagensRG();
     MeuSocarrao.UploadImagensSelf();
@@ -51,6 +52,7 @@ describe('Testes de Criacao do Anuncio', () => {
     MeuSocarrao.ClicarVenderVeiculo();
     MeuSocarrao.EscolherPlanoTurbo();
     MeuSocarrao.PreecherPlaca();
+    MeuSocarrao.ValidaApiPlacaNaoEncontrada()
     MeuSocarrao.PreencherMarcaModeloVersao();
     MeuSocarrao.PreencheAno();
     MeuSocarrao.PreencherKmCombustivel();
@@ -62,8 +64,8 @@ describe('Testes de Criacao do Anuncio', () => {
     MeuSocarrao.ClicarBotaoProximoPasso2();
     MeuSocarrao.PreenchePrecoDescricao();
     MeuSocarrao.ClicarBotaoProximoPasso3();
-    //MeuSocarrao.UploadImagens();
-    //MeuSocarrao.ValidaUploadImg();
+    MeuSocarrao.UploadImagens();
+    MeuSocarrao.ValidaUploadImg();
     MeuSocarrao.ClicarBotaoProximoPasso4();
     MeuSocarrao.UploadImagensRG();
     MeuSocarrao.UploadImagensSelf();
@@ -81,6 +83,7 @@ describe('Testes de Criacao do Anuncio', () => {
     MeuSocarrao.ClicarVenderVeiculo();
     MeuSocarrao.EscolherPlanoMelhor();
     MeuSocarrao.PreecherPlaca();
+    MeuSocarrao.ValidaApiPlacaNaoEncontrada()
     MeuSocarrao.PreencherMarcaModeloVersao();
     MeuSocarrao.PreencheAno();
     MeuSocarrao.PreencherKmCombustivel();
@@ -92,8 +95,8 @@ describe('Testes de Criacao do Anuncio', () => {
     MeuSocarrao.ClicarBotaoProximoPasso2();
     MeuSocarrao.PreenchePrecoDescricao();
     MeuSocarrao.ClicarBotaoProximoPasso3();
-    //MeuSocarrao.UploadImagens();
-    //MeuSocarrao.ValidaUploadImg();
+    MeuSocarrao.UploadImagens();
+    MeuSocarrao.ValidaUploadImg();
     MeuSocarrao.ClicarBotaoProximoPasso4();
     MeuSocarrao.UploadImagensRG();
     MeuSocarrao.UploadImagensSelf();
@@ -111,6 +114,7 @@ describe('Testes de Criacao do Anuncio', () => {
     MeuSocarrao.ClicarVenderVeiculo();
     MeuSocarrao.EscolherPlanoGratis();
     MeuSocarrao.PreecherPlaca();
+    MeuSocarrao.ValidaApiPlacaNaoEncontrada()
     MeuSocarrao.PreencherMarcaModeloVersao();
     MeuSocarrao.PreencheAno();
     MeuSocarrao.PreencherKmCombustivel();
@@ -122,8 +126,8 @@ describe('Testes de Criacao do Anuncio', () => {
     MeuSocarrao.ClicarBotaoProximoPasso2();
     MeuSocarrao.PreenchePrecoDescricao();
     MeuSocarrao.ClicarBotaoProximoPasso3();
-    //MeuSocarrao.UploadImagens();
-    //MeuSocarrao.ValidaUploadImg();
+    MeuSocarrao.UploadImagens();
+    MeuSocarrao.ValidaUploadImg();
     MeuSocarrao.ClicarBotaoProximoPasso4();
     MeuSocarrao.UploadImagensRG();
     MeuSocarrao.UploadImagensSelf();

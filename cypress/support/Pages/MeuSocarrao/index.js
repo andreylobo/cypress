@@ -3,9 +3,10 @@ const dt = require('../../../fixtures/dadosUsuario').DATA;
 class MeuSocarrao {
   // FUncao que fica escutando as APIs Acionadas durante o processo
   ListenApis() {
-    cy.intercept('GET', '**/api/brands?id=0&all=0').as('Marca');
-    cy.intercept('GET', '**/api/models/all?brandId[]=139').as('Modelo');
-    cy.intercept('GET', '**/api/versions/all?modelId[]=2').as('Versao');
+    cy.intercept('GET', '**/api/plate?plate**').as('Placa');
+    cy.intercept('GET', '**/api/brands**').as('Marca');
+    cy.intercept('GET', '**/api/models/all?brandId**').as('Modelo');
+    cy.intercept('GET', '**/api/versions/all?modelId**').as('Versao');
     cy.intercept('POST', '**/api/announce/images').as('UploadImgVeiculo');
     cy.intercept('POST', '**/api/announce/moderation/user/**').as(
       'UploadImgDocs'
@@ -15,11 +16,17 @@ class MeuSocarrao {
     );
     cy.intercept('POST', '**/api/announce/store/vehicles').as('CriaAnuncio');
   }
-  //Clica la logo par aque seja direcionado para a home
+  //Clica na logo par aque seja direcionado para a home
   ClicarBotaoHome() {
     cy.get(el.fraseMeuSocarrao).should('be.visible');
     cy.get(el.logo).click();
     cy.get(el.fraseTopoHome).should('be.visible');
+  }
+  //Mobile - Clica na logo para que seja direcionado para a home 
+  ClicarBotaoHomeMobile() {
+    cy.get(el.fraseMeuSocarrao).should('be.visible');
+    cy.get(el.logo).click();
+    cy.get(el.menuMobile).should('be.visible');
   }
   //Clica em "Vender Veiculo" para que seja direcionado para a tela de Planos
   ClicarVenderVeiculo() {
@@ -51,69 +58,81 @@ class MeuSocarrao {
     cy.get(el.acessorios).should('be.visible');
     cy.get(el.inputPlaca).type('dfj-4t54');
   }
+  ValidaApiPlacaNaoEncontrada() {
+    cy.wait('@Placa');
+    cy.get('@Placa').then(({ request, response }) => {
+      expect(response.statusCode).to.eq(404);
+    });
+  }
+  ValidaApiPlacaNaoEncontrada() {
+    cy.wait('@Placa');
+    cy.get('@Placa').then(({ request, response }) => {
+      expect(response.statusCode).to.eq(200);
+    });
+  }
   // Localiza os e seleciona marca, Modelo e Versao
   PreencherMarcaModeloVersao() {
-    cy.get(el.inputMarca).click();
+    cy.get(el.inputMarca).click({ force: true });
     cy.get(el.dropdownInput).should('be.visible');
-    cy.get(el.selectMarca).click();
-    cy.get(el.inputModelo).click();
+    cy.get(el.selectMarca).click({ force: true });
+    cy.get(el.inputModelo).click({ force: true });
     cy.get(el.dropdownInput).should('be.visible');
-    cy.get(el.selectModelo).click();
-    cy.get(el.inputVersao).click();
+    cy.get(el.selectModelo).click({ force: true });
+    cy.get(el.inputVersao).click({ force: true });
     cy.get(el.dropdownInput).should('be.visible');
-    cy.get(el.selectVersao).click();
+    cy.get(el.selectVersao).click({ force: true });
   }
   //Localiza e preenche AnoFabricaçáo e AnoModelo
   PreencheAno() {
-    cy.get(el.inputAnoF).click();
+    cy.get(el.inputAnoF).click({ force: true });
     cy.get(el.dropdownInput).should('be.visible');
-    cy.get(el.selectAnoF).click();
-    cy.get(el.inputAnoM).click();
+    cy.get(el.selectAnoF).click({ force: true });
+    cy.get(el.inputAnoM).click({ force: true });
     cy.get(el.dropdownInput).should('be.visible');
-    cy.get(el.selectAnoM).click();
+    cy.get(el.selectAnoM).click({ force: true });
   }
   //Localiza e preenche Kilometragem e Combustivel
   PreencherKmCombustivel() {
     cy.get(el.inputKm).type('123321');
-    cy.get(el.inputCombustivel).click();
+    cy.get(el.inputCombustivel).click({ force: true });
     cy.get(el.dropdownInput).should('be.visible');
-    cy.get(el.selectCombustivel).click();
+    cy.get(el.selectCombustivel).click({ force: true });
   }
   //Localiza e preenche Cambio e Cor
   PreencherCambioCor() {
-    cy.get(el.inputCambio).click();
+    cy.get(el.inputCambio).click({ force: true });
     cy.get(el.dropdownInput).should('be.visible');
-    cy.get(el.selectCambio).click();
-    cy.get(el.inputCor).click();
+    cy.get(el.selectCambio).click({ force: true });
+    cy.get(el.inputCor).click({ force: true });
     cy.get(el.dropdownInput).should('be.visible');
-    cy.get(el.selectCor).click();
+    cy.get(el.selectCor).click({ force: true });
   }
   //Localiza e preeenche portase bancos
   PreeenchePortaBanco() {
-    cy.get(el.inputPorta).click();
+    cy.get(el.inputPorta).click({ force: true });
     cy.get(el.dropdownInput).should('be.visible');
-    cy.get(el.selectPorta).click();
-    cy.get(el.inputBanco).click();
+    cy.get(el.selectPorta).click({ force: true });
+    cy.get(el.inputBanco).click({ force: true });
     cy.get(el.dropdownInput).should('be.visible');
-    cy.get(el.selectBanco).click();
+    cy.get(el.selectBanco).click({ force: true });
   }
   // Localiza e preenche estado e cidade
   PreecherEstadoCidade() {
-    cy.get(el.inputEstado).click();
+    cy.get(el.inputEstado).click({ force: true });
     cy.get(el.dropdownInput).should('be.visible');
-    cy.get(el.selectEstado).click();
-    cy.get(el.inputCidade).click();
+    cy.get(el.selectEstado).click({ force: true });
+    cy.get(el.inputCidade).click({ force: true });
     cy.get(el.dropdownInput).should('be.visible');
-    cy.get(el.selectCidade).click();
+    cy.get(el.selectCidade).click({ force: true });
   }
   // Clia no check 'completo' na listagem de acessorios
   PreencherAcessoriosCompleto() {
-    cy.get(el.checkAcessoriosCompleto).click();
+    cy.get(el.checkAcessoriosCompleto).click({ force: true });
   }
   // Clica na busca por acessorios digita um termo e seleciona o check do termi pesquisado
   PreencherBuscaAcessorios() {
     cy.get(el.inputBuscaAcessorios).type('som');
-    cy.get(el.checkAcessorioBuscado).click();
+    cy.get(el.checkAcessorioBuscado).click({ force: true });
   }
   //Clica no botão 'Proximo' e valida que foi direcionado para a URL correta
   ClicarBotaoProximoPasso2() {

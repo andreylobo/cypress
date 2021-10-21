@@ -89,4 +89,7 @@ export const ELEMENTS = {
   inputFone: '#boleto-phone',
   //Inputs do forme de boleto fim
   botaoConcluir: '#onComplete',
+  //*************Elementos Mobile*******************/
+  //Elementos da home do site
+  menuMobile: '.menu-mobile',
 };
