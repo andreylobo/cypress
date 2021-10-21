@@ -64,7 +64,7 @@ class MeuSocarrao {
       expect(response.statusCode).to.eq(404);
     });
   }
-  ValidaApiPlacaNaoEncontrada() {
+  ValidaApiPlacaEncontrada() {
     cy.wait('@Placa');
     cy.get('@Placa').then(({ request, response }) => {
       expect(response.statusCode).to.eq(200);
