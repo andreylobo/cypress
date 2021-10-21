@@ -6,7 +6,7 @@ describe('Testes de Criacao do Anuncio', () => {
   beforeEach(
     'Realiza login de um usuario ja existente',
     () => {
-      cy.viewport(1024, 768);
+      cy.viewport(375, 667);
       cy.visit('https://www.socarrao.com.br/?ignore=true');
       Home.ClicarBotaoCookies();
       Home.AcessarLogin();

@@ -1,5 +1,5 @@
 /// <reference types="cypress" />
-import Home from '../../support/Pages/Home'
+import Home from '../../../support/Pages/Home'
 
 describe('Testes de Login', () => {
   beforeEach('', () => {
@@ -7,9 +7,10 @@ describe('Testes de Login', () => {
     cy.visit('https://www.socarrao.com.br/?ignore=true')
     Home.ClicarBotaoCookies()
   })
-  it('Deve poder realizar login na versão mobile do site', () => {
+  it('Dado um Usuario e Senha já cadastrados do sistema, quando realizado o login, então deve conseguir se logar', () => {
     Home.AcessarLogin()
     Home.PreencherLogin()
+    Home.ClicarBotao()
     Home.ValidarLogin()
   })
 })
