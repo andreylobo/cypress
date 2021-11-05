@@ -1,7 +1,7 @@
 const el = require('./elements').ELEMENTS;
 const dt = require('../../../fixtures/dadosUsuario').DATA;
 class MeuSocarrao {
-  // FUncao que fica escutando as APIs Acionadas durante o processo
+  // Funcao que fica escutando as APIs Acionadas durante o processo
   ListenApis() {
     cy.intercept('GET', '**/api/plate?plate**').as('Placa');
     cy.intercept('GET', '**/api/brands**').as('Marca');
@@ -222,11 +222,28 @@ class MeuSocarrao {
     cy.get(el.passoCincoAtivo).should('be.visible');
     cy.url().should('include', '/passo?advertisement=1&stepper=5');
   }
+  // Preenche os dados de pagamento por cartão
+  PreenchimentoDadosCartao() {
+    cy.get(el.inputRuaC).clear().type(dt.rua);
+    cy.get(el.inputBairroC).clear().type(dt.bairro);
+    cy.get(el.inputCidadeC).clear().type(dt.cidade);
+    cy.get(el.inputCpfC).clear().type(dt.cpf);
+    cy.get(el.inputEmailC).clear().type(dt.email);
+    cy.get(el.inputNumeroC).clear().type(dt.numero);
+    cy.get(el.inputCepC).clear().type(dt.cep);
+    cy.get(el.inputEstadoCartao).click();
+    cy.get(el.selectEstadoCartao).click({ force: true });
+    cy.get(el.inputDtNascC).click({ force: true }).clear().type(dt.dataNasc);
+    cy.get(el.inputFoneC).clear().type(dt.fone);
+    cy.get(el.inputNomeCartao).clear().type(dt.nomeCartao);
+    cy.get(el.inputNumCartao).clear().type(dt.numeroCartao);
+    cy.get(el.inputDtVencCartao).clear().type(dt.validade);
+    cy.get(el.inputCodigoSegCartao).clear().type(dt.codigoSeg);
+  }
   //Seleciona pagamento boleto e insere dados de pagamento
   PreenchimentoDadosBoleto() {
     cy.get(el.selecionaBoleto).click();
     cy.get(el.formDadosBoleto).should('be.visible');
-    cy.clearLocalStorage();
     cy.get(el.inputNome).clear().type(dt.name);
     cy.get(el.inputRua).clear().type(dt.rua);
     cy.get(el.inputNumero).clear().type(dt.numero);

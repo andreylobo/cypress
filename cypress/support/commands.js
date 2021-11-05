@@ -23,4 +23,19 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+//
+//
+//
+// ***********************************************
+//Plugin utilizado para realizar Upload de Imagens
 import 'cypress-file-upload';
+//
+// Comando personalizado que realiza login 
+Cypress.Commands.add('login', (username, password) => {
+  cy.visit('https://www.socarrao.com.br/?ignore=true')
+  cy.get('.banner > .button').click()
+  cy.get('.login').click()
+  cy.get('form > [type="text"]').type(username)
+  cy.get('.password-input > .regular').type(password)
+  cy.get('#btn_entrar').click()
+})

@@ -87,7 +87,23 @@ export const ELEMENTS = {
   inputDtNasc: '#boleto-birth',
   inputEmail: '#boleto-email',
   inputFone: '#boleto-phone',
-  //Inputs do forme de boleto fim
+  //Inputs do forme de cartão
+  inputRuaC: '#credit-card-street',
+  inputNumeroC: '#credit-card-number',
+  inputBairroC: '#credit-card-neighborhood',
+  inputCepC: '#credit-card-cep',
+  inputCidadeC: '#credit-card-city',
+  inputEstadoCartao: ':nth-child(2) > .boleto-form > :nth-child(4) > :nth-child(2) > #dropdown-uf > .input > input',
+  selectEstadoCartao: ':nth-child(2) > .boleto-form > :nth-child(4) > :nth-child(2) > #dropdown-uf > .autocomplete > :nth-child(16)',
+  inputCpfC: '#credit-card-cpf',
+  inputEmailC: '#credit-card-email',
+  inputDtNascC: '#credit-card-birth',
+  inputFoneC: '#credit-card-phone',
+  inputNomeCartao: '#name',
+  inputNumCartao: '#nome',
+  inputDtVencCartao: '#validate',
+  inputCodigoSegCartao: '#security',
+
   botaoConcluir: '#onComplete',
   //*************Elementos Mobile*******************/
   //Elementos da home do site

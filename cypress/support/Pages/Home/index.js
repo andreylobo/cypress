@@ -31,7 +31,7 @@ class Home {
       expect(response.body.success).to.eq(true)
     })
   }
-  // end Login
+  // Clica no botão de Cookies
   ClicarBotaoCookies() {
     cy.get(el.botaoAceitarCookies).click()
   }
